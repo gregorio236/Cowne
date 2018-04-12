@@ -300,3 +300,7 @@ __pycache__/
 
 # Minha modificacoes
 !libUnicornio/**
+!Debug
+Cowne/Debug
+!*.dll
+!Debug/VC_redist.x86.exe
