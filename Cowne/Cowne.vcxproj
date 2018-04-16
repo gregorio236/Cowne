@@ -125,12 +125,14 @@
     <ClCompile Include="Curandeiro.cpp" />
     <ClCompile Include="GerenciadorColisao.cpp" />
     <ClCompile Include="GerenciadorObjetos.cpp" />
+    <ClCompile Include="GerenciadorSave.cpp" />
     <ClCompile Include="Guerreiro.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Necromante.cpp" />
     <ClCompile Include="Particula.cpp" />
     <ClCompile Include="Personagem.cpp" />
+    <ClCompile Include="Save.cpp" />
     <ClCompile Include="Tiro.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -138,11 +140,13 @@
     <ClInclude Include="Curandeiro.h" />
     <ClInclude Include="GerenciadorColisao.h" />
     <ClInclude Include="GerenciadorObjetos.h" />
+    <ClInclude Include="GerenciadorSave.h" />
     <ClInclude Include="Guerreiro.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Necromante.h" />
     <ClInclude Include="Particula.h" />
     <ClInclude Include="Personagem.h" />
+    <ClInclude Include="Save.h" />
     <ClInclude Include="Tiro.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

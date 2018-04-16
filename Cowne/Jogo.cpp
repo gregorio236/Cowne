@@ -2,7 +2,9 @@
 
 #include "GerenciadorObjetos.h"
 #include "GerenciadorColisao.h"
+#include "GerenciadorSave.h"
 #include "Particula.h"
+#include "Save.h"
 
 Personagem* Jogo::jogador;
 
@@ -12,6 +14,9 @@ Jogo::Jogo()
 
 Jogo::~Jogo()
 {
+	delete curandeiro;
+	delete guerreiro;
+	delete necromante;
 }
 
 Personagem * Jogo::getJogador()
@@ -25,18 +30,20 @@ void Jogo::inicializar()
 
 	gJanela.setCorDeFundo(75, 75, 75);
 
-	gRecursos.carregarSpriteSheet("curandeiro", "../assets/curandeiroSheet.png", 4, 4);
-	gRecursos.carregarSpriteSheet("tiro", "../assets/tiroSheet.png", 1, 32);
-	gRecursos.carregarSpriteSheet("guerreiro", "../assets/guerreiroSheet.png", 4, 4);
-	gRecursos.carregarSpriteSheet("bola", "../assets/bolaSheet.png", 1, 4);
-	gRecursos.carregarSpriteSheet("necromante", "../assets/necromanteSheet.png", 4, 4);
-	gRecursos.carregarSpriteSheet("caixa", "../assets/caixaSheet.png", 1, 1);
-	gRecursos.carregarSpriteSheet("particula", "../assets/particulaSheet.png", 1, 19);
+	gRecursos.carregarSpriteSheet("curandeiro", "../Assets/curandeiroSheet.png", 4, 4);
+	gRecursos.carregarSpriteSheet("tiro", "../Assets/tiroSheet.png", 1, 32);
+	gRecursos.carregarSpriteSheet("guerreiro", "../Assets/guerreiroSheet.png", 4, 4);
+	gRecursos.carregarSpriteSheet("bola", "../Assets/bolaSheet.png", 1, 4);
+	gRecursos.carregarSpriteSheet("necromante", "../Assets/necromanteSheet.png", 4, 4);
+	gRecursos.carregarSpriteSheet("caixa", "../Assets/caixaSheet.png", 1, 1);
+	gRecursos.carregarSpriteSheet("particula", "../Assets/particulaSheet.png", 1, 19);
 
-	gRecursos.carregarAudio("tiro", "../assets/tiro.wav");
-	gRecursos.carregarAudio("bola", "../assets/bola.wav");
-	gRecursos.carregarAudio("levitar", "../assets/levitar.mp3");
-	gRecursos.carregarAudio("fundo", "../assets/fundo.mp3");
+	gRecursos.carregarAudio("tiro", "../Assets/tiro.wav");
+	gRecursos.carregarAudio("bola", "../Assets/bola.wav");
+	gRecursos.carregarAudio("levitar", "../Assets/levitar.mp3");
+	gRecursos.carregarAudio("fundo", "../Assets/fundo.mp3");
+
+	GerenciadorSave::CarregaInfo("../Saves/save.dat");
 
 	curandeiro = new Curandeiro();
 	guerreiro = new Guerreiro();
@@ -45,12 +52,7 @@ void Jogo::inicializar()
 	jogador = curandeiro;
 	jogador->setPos(gJanela.getLargura() / 2, gJanela.getAltura() / 2);
 
-	GerenciadorObjetos::criaCaixa(100.0f, 100.0f);
-	GerenciadorObjetos::criaCaixa(200.0f, 200.0f);
-	GerenciadorObjetos::criaCaixa(250.0f, 200.0f);
-	GerenciadorObjetos::criaCaixa(300.0f, 200.0f);
-	GerenciadorObjetos::criaCaixa(400.0f, 200.0f);
-	GerenciadorObjetos::criaCaixa(500.0f, 200.0f);
+	GerenciadorObjetos::Inicializar();
 
 	musica.setAudio("fundo");
 	musica.setVolume(50.0f);
@@ -101,5 +103,6 @@ void Jogo::executar()
 
 		uniTerminarFrame();
 	}
+	GerenciadorObjetos::SalvarObjetos("../Saves/save.dat");
 }
 

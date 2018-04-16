@@ -1,16 +1,20 @@
 #ifndef GERENCIADOROBJETOS_H
 #define GERENCIADOROBJETOS_H
 
+#include "libUnicornio.h"
+
+#include <vector>
+using namespace std;
+
 #include "Caixa.h"
 #include "Tiro.h"
 
 static class GerenciadorObjetos
 {
 public:
-	GerenciadorObjetos();
-	~GerenciadorObjetos();
-
 	static vector<Caixa*> getCaixas();
+
+	static void Inicializar();
 
 	static void rodar();
 
@@ -18,6 +22,8 @@ public:
 
 	static void criaCaixa(float x, float y);
 	static Caixa* pegaCaixa(float x, float y);
+
+	static void SalvarObjetos(const char* caminho);
 
 private:
 	static vector<Tiro*> tiros;
