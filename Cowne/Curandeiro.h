@@ -9,6 +9,7 @@ public:
 	Curandeiro();
 	~Curandeiro();
 
+
 protected:
 	virtual void poder();
 
