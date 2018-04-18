@@ -12,6 +12,7 @@ public:
 
 	Vetor2D GetCaixa(int i);
 
+
 private:
 	Vetor2D caixas[3];
 };
