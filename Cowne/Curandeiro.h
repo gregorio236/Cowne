@@ -10,6 +10,7 @@ public:
 	~Curandeiro();
 
 
+
 protected:
 	virtual void poder();
 
